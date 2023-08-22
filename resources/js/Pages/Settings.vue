@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from 'vue'
-import Nav from '../Shared/Nav.vue'
+import Layout from "../Shared/Layout.vue";
 
 defineProps({
 
@@ -8,8 +8,11 @@ defineProps({
 </script>
 
 <template>
-    <h1 class="text-4xl font-bold">Settings</h1>
-    <Nav></Nav>
+    <Layout>
+        <h1 class="text-3xl">
+            Settings
+        </h1>
+    </Layout>
 </template>
 
 <style scoped>

@@ -1,15 +1,14 @@
 <script setup>
-    import { defineProps } from 'vue'
-    import Nav from '../Shared/Nav.vue'
+import Layout from '../Shared/Layout.vue'
 
-    defineProps({
-
-    })
 </script>
 
 <template>
-    <h1 class="text-4xl font-bold">Home</h1>
-    <Nav></Nav>
+    <Layout>
+        <h1 class="text-3xl">
+            Home
+        </h1>
+    </Layout>
 </template>
 
 <style scoped>
