@@ -1,5 +1,5 @@
 <script setup>
-import { Link } from "@inertiajs/vue3";
+import {Head, Link} from "@inertiajs/vue3";
 
 defineProps({
     time: String,
@@ -7,6 +7,9 @@ defineProps({
 </script>
 
 <template>
+    <Head>
+        <title>Users</title>
+    </Head>
     <h1 class="text-3xl">Users</h1>
 
     <div style="margin-top: 1000px">
