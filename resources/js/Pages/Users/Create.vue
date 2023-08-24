@@ -1,18 +1,22 @@
 <script setup>
 
-    import {reactive} from "vue";
-    import {Inertia} from "@inertiajs/inertia";
+import {reactive} from "vue";
+import {Inertia} from "@inertiajs/inertia";
 
-    let form = reactive({
-        name: '',
-        email: '',
-        password: '',
-    });
+defineProps({
+    errors: Object,
+});
 
-    function submit(e) {
-        e.preventDefault();
-        Inertia.post('/users', form);
-    }
+let form = reactive({
+    name: '',
+    email: '',
+    password: '',
+});
+
+function submit(e) {
+    e.preventDefault();
+    Inertia.post('/users', form);
+}
 </script>
 
 <template>
@@ -32,6 +36,8 @@
                 required
             >
 
+            <div v-if="errors.name" v-text="errors.name" class="text-red-500 text-xs mt-1"></div>
+
             <label for="email" class="block mb-2 mt-3 uppercase font-bold text-xs text-gray-700">
                 Email
             </label>
@@ -43,6 +49,7 @@
                 id="email"
                 required
             >
+            <div v-if="errors.email" v-text="errors.email" class="text-red-500 text-xs mt-1"></div>
 
             <label for="password" class="block mb-2 mt-3 uppercase font-bold text-xs text-gray-700">
                 Password
@@ -55,11 +62,14 @@
                 id="password"
                 required
             >
+
+            <div v-if="errors.password" v-text="errors.password" class="text-red-500 text-xs mt-1"></div>
+
         </div>
         <div class="mb-6">
             <button type="submit"
-                class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
-                >
+                    class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
+            >
                 Submit
             </button>
         </div>
