@@ -16,6 +16,8 @@
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/vue3": "^1.0.10",
         "@vitejs/plugin-vue": "^4.2.3",
+        "lodash.debounce": "^4.0.8",
+        "lodash.throttle": "^4.1.1",
         "vue": "^3.2.36"
     }
 }
