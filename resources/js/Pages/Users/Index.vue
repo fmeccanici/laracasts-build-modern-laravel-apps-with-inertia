@@ -9,7 +9,8 @@ import debounce from "lodash.debounce";
 
 let props = defineProps({
     users: Object,
-    filters: Object
+    filters: Object,
+    can: Object
 })
 
 let search = ref(props.filters.search);
@@ -33,7 +34,7 @@ watch(search, debounce(function (value) {
         <div class="flex items-center">
             <h1 class="text-3xl">Users</h1>
 
-            <Link href="/users/create" class="text-blue-500 text-sm ml-4">New User</Link>
+            <Link v-if="can.createUser" href="/users/create" class="text-blue-500 text-sm ml-4">New User</Link>
         </div>
 
         <input v-model="search" type="text" placeholder="Search..." class="border px-2 rounded-lg">
@@ -53,7 +54,7 @@ watch(search, debounce(function (value) {
                             </div>
                         </td>
 
-                        <td class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                        <td v-if="user.can.edit" class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                             <Link :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">
                                 Edit
                             </Link>
